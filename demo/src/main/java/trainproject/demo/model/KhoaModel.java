@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Khoa {
+public class KhoaModel {
 	private int maKhoa;
 	private String tenKhoa;
 }

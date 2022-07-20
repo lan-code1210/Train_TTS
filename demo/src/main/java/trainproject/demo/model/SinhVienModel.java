@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SinhVien {
+public class SinhVienModel {
 	private int maSV;
 	private int maKhoa;
 	private String hoTen;
