@@ -37,42 +37,46 @@
     <div class="content">
         <div class="container">
             <div class="content-wapper">
-                <table class="insert">
-                    <tr>
-                        <td>Mã Sinh Viên </td>
-                        <td><input type="text" methord="POST" placeholder="Nhập mã sinh viên ..."></td>
-                    </tr>
-                    <tr>
-                        <td>Họ Và Tên </td>
-                        <td><input type="text" methord="POST" placeholder="Nhập họ và tên ..."></td>
-                    </tr>
-                    <tr>
-                        <td>Ngày Sinh</td>
-                        <td><input type="text" methord="POST" placeholder="Nhập ngày sinh ..."></td>
-                    </tr>
-                    <tr>
-                        <td>Giới Tính</td>
-                        <td><input type="text" methord="POST" placeholder="Nhập giới tính ..."></td>
-                    </tr>
-                    <tr>
-                        <td>Khoa</td>
-                        <td><input type="text" methord="POST" placeholder="Nhập khoa ..."></td>
-                    </tr>
-                    <tr>
-                        <td>Địa Chỉ</td>
-                        <td><input type="text" methord="POST" placeholder="Nhập địa chỉ ..."></td>
-                    </tr>
-                    <tr>
-                        <td>SĐT</td>
-                        <td><input type="text" methord="POST" placeholder="Nhập số điện thoại ..."></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btn-submit">Thêm</button>
-                        </td>
-                    </tr>
+                <form class="insert" action="#" method="POST">
+                    <table class="table-insert">
+                        <tr>
+                            <td>Mã Sinh Viên </td>
+                            <td><input type="text" placeholder="Nhập mã sinh viên ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Họ Và Tên </td>
+                            <td><input type="text" placeholder="Nhập họ và tên ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Sinh</td>
+                            <td><input type="text" placeholder="Nhập ngày sinh ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Giới Tính</td>
+                            <td><input type="text" placeholder="Nhập giới tính ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Khoa</td>
+                            <td><input type="text" placeholder="Nhập khoa ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Địa Chỉ</td>
+                            <td><input type="text" placeholder="Nhập địa chỉ ..."></td>
+                        </tr>
+                        <tr>
+                            <td>SĐT</td>
+                            <td><input type="text" placeholder="Nhập số điện thoại ..."></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="btn-submit">Thêm</a>
+                            </td>
+                        </tr>
 
-                </table>
+                    </table>
+                </form>
+
+
                 <table class="sinhvien table">
                     <tr>
                         <td>Mã Sinh Viên</td>
@@ -85,13 +89,19 @@
                     </tr>
                     <tbody id="show-data"></tbody>
                 </table>
-                <table class="table-khoa table">
-                    <tr>
-                        <td>Mã Khoa</td>
-                        <td>Tên Khoa</td>
-                    </tr>
-                    <tbody id="data-khoa"></tbody>
-                </table>
+                <form action="" method="POST">
+                    <table class="table-khoa table">
+                        <tr>
+                            <td>Mã Khoa</td>
+                            <td>Tên Khoa</td>
+                            <td><a href="#">Thêm</a></td>
+                            <td><a href="#">Sửa</a></td>
+                        </tr>
+                        <tbody id="data-khoa"></tbody>
+                    </table>
+                </form>
+
+
                 <table class="baocao"></table>
             </div>
         </div>
@@ -99,7 +109,6 @@
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 
     <script th:src="@{/js/main.js}"></script>
 </body>

@@ -15,28 +15,28 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "sinhVien")
+@Table(name = "sinhvien")
 public class SinhVien {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "maSV")
+	@Column(name = "ma_sv")
 	private int maSV;
 	
 	@ManyToOne
-	@JoinColumn(name = "maKhoa")
-	private int maKhoa;
+	@JoinColumn(name = "ma_khoa")
+	private Khoa khoa;
 	
-	@Column(name = "hoTen")
+	@Column(name = "ho_ten")
 	private String hoTen;
 	
-	@Column(name = "ngaySinh")
+	@Column(name = "ngay_sinh")
 	private String ngaySinh;
 	
-	@Column(name = "gioiTinh")
+	@Column(name = "gioi_tinh")
 	private String gioiTinh;
 	
-	@Column(name = "diaChi")
+	@Column(name = "dia_chi")
 	private String diaChi;
 	
 	@Column(name = "sdt")

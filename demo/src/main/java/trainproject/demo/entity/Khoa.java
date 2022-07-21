@@ -19,13 +19,13 @@ import lombok.Data;
 public class Khoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "maKhoa")
+	@Column(name = "ma_khoa")
 	private int maKhoa;
 	
-	@Column(name = "tenKhoa")
+	@Column(name = "ten_khoa")
 	private String tenKhoa;
 	
-	@OneToMany(mappedBy = "maKhoa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "khoa", cascade = CascadeType.ALL)
 	private Collection<SinhVien>  sinhViens;
 	
 	
