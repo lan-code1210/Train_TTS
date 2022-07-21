@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar-menu">
+                <div class="logo">
+                    <a class="qlsv" href="#">quản lý sinh viên</a>
+                    <div class="children">
+                        <ul class="children-ql">
+                            <li><a class="sv" href="#">SINH VIÊN</a></li>
+                            <li><a class="khoa" href="#">KHOA</a></li>
+                            <li><a class="baocao" href="#">BÁO CÁO</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search">
+                    <input type="text" class="input-search" methord="POST" placeholder="Tìm Kiếm sinh viên ...">
+                    <button class="btn-search">Tìm Kiếm</button>
+                </div>
+                <div class="add">
+                    <button class="btn-add"> Thêm Sinh viên</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="content-wapper">
+                <table class="insert">
+                    <tr>
+                        <td>Mã Sinh Viên </td>
+                        <td><input type="text" methord="POST" placeholder="Nhập mã sinh viên ..."></td>
+                    </tr>
+                    <tr>
+                        <td>Họ Và Tên </td>
+                        <td><input type="text" methord="POST" placeholder="Nhập họ và tên ..."></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày Sinh</td>
+                        <td><input type="text" methord="POST" placeholder="Nhập ngày sinh ..."></td>
+                    </tr>
+                    <tr>
+                        <td>Giới Tính</td>
+                        <td><input type="text" methord="POST" placeholder="Nhập giới tính ..."></td>
+                    </tr>
+                    <tr>
+                        <td>Khoa</td>
+                        <td><input type="text" methord="POST" placeholder="Nhập khoa ..."></td>
+                    </tr>
+                    <tr>
+                        <td>Địa Chỉ</td>
+                        <td><input type="text" methord="POST" placeholder="Nhập địa chỉ ..."></td>
+                    </tr>
+                    <tr>
+                        <td>SĐT</td>
+                        <td><input type="text" methord="POST" placeholder="Nhập số điện thoại ..."></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-submit">Thêm</button>
+                        </td>
+                    </tr>
+
+                </table>
+                <table class="sinhvien table">
+                    <tr>
+                        <td>Mã Sinh Viên</td>
+                        <td>Họ Và Tên</td>
+                        <td>Ngày Sinh</td>
+                        <td>Giới Tính</td>
+                        <td>Khoa</td>
+                        <td>Địa Chỉ</td>
+                        <td>SĐT</td>
+                    </tr>
+                    <tbody id="show-data"></tbody>
+                </table>
+                <table class="table-khoa table">
+                    <tr>
+                        <td>Mã Khoa</td>
+                        <td>Tên Khoa</td>
+                    </tr>
+                    <tbody id="data-khoa"></tbody>
+                </table>
+                <table class="baocao"></table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>
