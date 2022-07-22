@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class SinhVienController {
 	@GetMapping("giangvien")
 	public String sinhvien() {
-		return "";
+		return "/create";
 	}
 	@PostMapping("sinhvien")
 	public String sinhvien2() {

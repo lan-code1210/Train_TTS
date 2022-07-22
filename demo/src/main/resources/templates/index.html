@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar-menu">
+                <div class="logo">
+                    <a class="qlsv" href="#">quản lý sinh viên</a>
+                    <div class="children">
+                        <ul class="children-ql">
+                            <li><a class="sv" href="#">SINH VIÊN</a></li>
+                            <li><a class="khoa" href="#">KHOA</a></li>
+                            <li><a class="baocao" href="#">BÁO CÁO</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="content-wapper">
+                <form class="insert" action="" method="POST" id="from-insert">
+                    <h1 style="font-size: 28px ; " class="title-sv"></h1>
+                    <table class="table-insert">
+
+                        <!-- <tr>
+                            <td>Mã Sinh Viên </td>
+                            <td><input id="student-id-input" type="text" placeholder="Nhập mã sinh viên ..."></td>
+                        </tr> -->
+                        <tr>
+                            <td>Họ Và Tên </td>
+                            <td><input id="student-name-input" type="text" name="name" placeholder="Nhập họ và tên ..."
+                                    required>
+                            </td>
+                        </tr>
+                        <tr class=" error error-name" id="z-name">
+                        </tr>
+
+                        <tr>
+                            <td><label for="birthday">Ngày sinh:</label></td>
+                            <td><input type="date" id="birthday" name="birthday" required></td>
+                        </tr>
+                        <tr class="error error-brithday" id="z-birthday"></tr>
+                        <tr>
+                            <td>Giới Tính</td>
+                            <td>
+                                <form action="">
+                                      <input type="radio" id="nam" name="action" value="nam" required>
+                                      <label for="css">Nam</label>
+                                      <input type="radio" id="nu" name="action" value="nu" required>
+                                      <label for="javascript">Nữ</label>
+                                </form>
+
+
+                            </td>
+
+                        </tr>
+                        <tr class="error error-sex" id="z-sex"></tr>
+
+                        <tr>
+                            <td>Khoa</td>
+                            <td>
+
+                                <select name="" id="">
+                                    <option value="">CNTT</option>
+                                    <option value="">MARKETTING</option>
+                                </select>
+                            </td>
+                        <tr class="error error-department" id="z-department"></tr>
+
+                        </tr>
+                        <tr>
+                            <td>Địa Chỉ</td>
+                            <td>
+                                <input id="student-address-input" type="text" placeholder="Nhập địa chỉ ..." required>
+                            </td>
+
+                        </tr>
+                        <tr class="error error-address" id="z-address"></tr>
+
+                        <tr>
+                            <td>SĐT</td>
+                            <td>
+                                <input id="student-phone-input" type="text" placeholder="Nhập số điện thoại ...">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Thêm" class="btn-submit" id="add-student-btn">
+                            </td>
+                            <td>
+                                <input type="reset" value="Hủy" class="btn-submit btn-cancel" id="add-cancel-btn">
+                            </td>
+                            <td>
+                                <button class="btn-submit" id="edit-student-btn">Sửa</button>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+
+                </form>
+
+
+
+
+
+
+                <table class="baocao"></table>
+            </div>
+            <table class="sinhvien table">
+                <div class="search">
+                    <input type="text" class="input-search" methord="POST" placeholder="Tìm Kiếm sinh viên ...">
+                    <button class="btn-search">Tìm Kiếm</button>
+                </div>
+
+                <tr>
+                    <td>Mã Sinh Viên</td>
+                    <td>Họ Và Tên</td>
+                    <td>Ngày Sinh</td>
+                    <td>Giới Tính</td>
+                    <td>Khoa</td>
+                    <td>Địa Chỉ</td>
+                    <td>SĐT</td>
+                    <td colspan="2" class="add">
+                        <input type="submit" class="btn-add" value="Thêm Sinh viên"> </input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>
+                        <button class="btn-edit" id="edit-btn">Sửa</button>
+
+                    </td>
+
+                    <td>
+                        <button class="btn-delete " id="add-delete-btn"> Xóa</button>
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+
+            <form action="" method="POST" class="from-khoa">
+                <table class="table-khoa table">
+                    <tr>
+                        <td>Mã Khoa</td>
+                        <td>Tên Khoa</td>
+                        <td><a href="#" class="add-khoa-btn">Thêm</a></td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>a</td>
+                        <td><a href="#" class="edit-khoa">Sửa</a></td>
+                    </tr>
+                    <tbody id="data-khoa"></tbody>
+                </table>
+                <form action="" method="POST" class="form-add-khoa">
+                    <table class="add-khoa">
+                        <th>
+                            <h1 class="title-edit-khoa"> </h1>
+                        </th>
+                        <tr>
+                            <td>Mã Khoa </td>
+                            <td><input id="khoa-name-input" type="number" placeholder="Nhập Mã khoa ..." required></td>
+                        </tr>
+                        <tr>
+                            <td>Tên Khoa</td>
+                            <td><input id="khoa-name-input" type="text" placeholder="Nhập Tên khoa ..." required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="add-submit-khoa btn-edit" id="add-khoa-btn">Thêm</a>
+                            </td>
+                            <td>
+                                <input type="reset" value="Hủy" class="btn-submit btn-edit-khoa">
+                            </td>
+                            <td>
+                                <a href="#" class="btn-edit edit-khoa-btn " id="edit-btn">Sửa</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
