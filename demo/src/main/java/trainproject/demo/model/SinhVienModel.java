@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SinhVienModel {
 	private int maSV;
-	private int maKhoa;
+	private int khoa;
 	private String hoTen;
 	private String ngaySinh;
 	private String gioiTinh;

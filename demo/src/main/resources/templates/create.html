@@ -11,65 +11,54 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="navbar-menu">
-                <div class="logo">
-                    <a class="qlsv" href="#">quản lý sinh viên</a>
-                    <div class="children">
-                        <ul class="children-ql">
-                            <li><a class="sv" href="#">SINH VIÊN</a></li>
-                            <li><a class="khoa" href="#">KHOA</a></li>
-                            <li><a class="baocao" href="#">BÁO CÁO</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="search">
-                    <input type="text" class="input-search" methord="POST" placeholder="Tìm Kiếm sinh viên ...">
-                    <button class="btn-search">Tìm Kiếm</button>
-                </div>
-                <div class="add">
-                    <button class="btn-add"> Thêm Sinh viên</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="content">
         <div class="container">
             <div class="content-wapper">
-                <form class="insert" action="#" method="POST">
+                <form class="insert" th:action="@{/savesv}" th:object="${sv}" method="POST">
                     <table class="table-insert">
                         <tr>
                             <td>Mã Sinh Viên </td>
-                            <td><input type="text" placeholder="Nhập mã sinh viên ..."></td>
+                            <td><input type="text" th:field="*{maSV}" placeholder="Nhập mã sinh viên ..."></td>
                         </tr>
                         <tr>
                             <td>Họ Và Tên </td>
-                            <td><input type="text" placeholder="Nhập họ và tên ..."></td>
+                            <td><input type="text" th:field="*{hoTen}" placeholder="Nhập họ và tên ..."></td>
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="text" placeholder="Nhập ngày sinh ..."></td>
+                            <td><input type="date" th:field="*{ngaySinh}" placeholder="Nhập ngày sinh ..."></td>
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
-                            <td><input type="text" placeholder="Nhập giới tính ..."></td>
+                            <td><input type="radio" th:field="*{gioiTinh}" 
+                            th:value="true"
+                             placeholder="Nhập giới tính ...">
+                             <label>Nam</label>
+                             <input type="radio" th:field="*{gioiTinh}" 
+                            th:value="false"
+                             placeholder="Nhập giới tính ...">
+                             <label>Nữ</label>
+                             </td>
                         </tr>
                         <tr>
                             <td>Khoa</td>
-                            <td><input type="text" placeholder="Nhập khoa ..."></td>
+                            <td>
+                            <select th:field="*{khoa}">
+                            <option th:each="kh:${listkh}" th:value="${kh.maKhoa}" th:text="${kh.tenKhoa}" value=""></option>
+                            </select>
+							</td>
                         </tr>
                         <tr>
                             <td>Địa Chỉ</td>
-                            <td><input type="text" placeholder="Nhập địa chỉ ..."></td>
+                            <td><input type="text" th:field="*{diaChi}" placeholder="Nhập địa chỉ ..."></td>
                         </tr>
                         <tr>
                             <td>SĐT</td>
-                            <td><input type="text" placeholder="Nhập số điện thoại ..."></td>
+                            <td><input type="text" th:field="*{sdt}" placeholder="Nhập số điện thoại ..."></td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#" class="btn-submit">Thêm</a>
+                                <button>Submit</button>
                             </td>
                         </tr>
 
@@ -77,29 +66,7 @@
                 </form>
 
 
-                <table class="sinhvien table">
-                    <tr>
-                        <td>Mã Sinh Viên</td>
-                        <td>Họ Và Tên</td>
-                        <td>Ngày Sinh</td>
-                        <td>Giới Tính</td>
-                        <td>Khoa</td>
-                        <td>Địa Chỉ</td>
-                        <td>SĐT</td>
-                    </tr>
-                    <tbody id="show-data"></tbody>
-                </table>
-                <form action="" method="POST">
-                    <table class="table-khoa table">
-                        <tr>
-                            <td>Mã Khoa</td>
-                            <td>Tên Khoa</td>
-                            <td><a href="#">Thêm</a></td>
-                            <td><a href="#">Sửa</a></td>
-                        </tr>
-                        <tbody id="data-khoa"></tbody>
-                    </table>
-                </form>
+             
 
 
                 <table class="baocao"></table>
@@ -108,7 +75,6 @@
 
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script th:src="@{/js/main.js}"></script>
 </body>

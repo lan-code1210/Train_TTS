@@ -12,22 +12,14 @@ import trainproject.demo.entity.Khoa;
 
 public interface KhoaService {
 
-	<S extends Khoa> List<S> findAll(Example<S> example, Sort sort);
-
-	void deleteById(Integer id);
-
-	<S extends Khoa> Page<S> findAll(Example<S> example, Pageable pageable);
-
-	Optional<Khoa> findById(Integer id);
-
-	List<Khoa> findAllById(Iterable<Integer> ids);
-
-	List<Khoa> findAll(Sort sort);
-
-	Page<Khoa> findAll(Pageable pageable);
-
 	List<Khoa> findAll();
 
 	<S extends Khoa> S save(S entity);
+	
+	public Khoa getKhoaById(Integer id);
+	
+	public void deleteKhoaById(Integer id);
+	
+	public boolean checkNameKhoa(String name);
 
 }

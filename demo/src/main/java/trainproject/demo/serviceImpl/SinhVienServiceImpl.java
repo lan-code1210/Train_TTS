@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import trainproject.demo.entity.Khoa;
 import trainproject.demo.entity.SinhVien;
 import trainproject.demo.repository.SinhVienRepository;
 import trainproject.demo.service.SinhVienService;
@@ -18,6 +19,13 @@ import trainproject.demo.service.SinhVienService;
 public class SinhVienServiceImpl implements SinhVienService {
 	@Autowired
 	private SinhVienRepository svRepository;
+	
+	
+	public SinhVienServiceImpl(SinhVienRepository svRepository) {
+		super();
+		this.svRepository = svRepository;
+	}
+
 	@Override
 	public <S extends SinhVien> S save(S entity) {
 		return svRepository.save(entity);
@@ -29,34 +37,22 @@ public class SinhVienServiceImpl implements SinhVienService {
 	}
 
 	@Override
-	public List<SinhVien> findAllById(Iterable<Integer> ids) {
-		return svRepository.findAllById(ids);
+	public SinhVien getSVById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public Optional<SinhVien> findById(Integer id) {
-		return svRepository.findById(id);
+	public void deleteSVById(Integer id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public <S extends SinhVien> Page<S> findAll(Example<S> example, Pageable pageable) {
-		return svRepository.findAll(example, pageable);
+	public boolean checkSDTSV(String name) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	@Override
-	public void deleteById(Integer id) {
-		svRepository.deleteById(id);
-	}
 
-	@Override
-	public void delete(SinhVien entity) {
-		svRepository.delete(entity);
-	}
-
-	@Override
-	public <S extends SinhVien> List<S> findAll(Example<S> example, Sort sort) {
-		return svRepository.findAll(example, sort);
-	}
-	
-	
 }

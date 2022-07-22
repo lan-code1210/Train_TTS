@@ -20,7 +20,7 @@ import trainproject.demo.repository.KhoaReppository;
 import trainproject.demo.service.KhoaService;
 
 @Service
-public class KhoaServiceImpl implements KhoaService{
+public class KhoaServiceImpl implements KhoaService {
 
 	@Autowired
 	private KhoaReppository khoaReppository;
@@ -41,40 +41,33 @@ public class KhoaServiceImpl implements KhoaService{
 	}
 
 	@Override
-	public Page<Khoa> findAll(Pageable pageable) {
-		return khoaReppository.findAll(pageable);
+	public Khoa getKhoaById(Integer id) {
+		Optional<Khoa> optional = this.khoaReppository.findById(id);
+		Khoa khoa = null;
+		if (optional.isPresent()) {
+			khoa = optional.get();
+		}else {
+			throw new RuntimeException("Không tìm thấy khoa với id: "+id);
+		}
+		return khoa;
 	}
 
 	@Override
-	public List<Khoa> findAll(Sort sort) {
-		return khoaReppository.findAll(sort);
+	public void deleteKhoaById(Integer id) {
+		this.khoaReppository.deleteById(id);
+		
 	}
 
 	@Override
-	public List<Khoa> findAllById(Iterable<Integer> ids) {
-		return khoaReppository.findAllById(ids);
+	public boolean checkNameKhoa(String name) {
+		for (int i = 0; i < khoaReppository.findAll().size(); i++) {
+			if (khoaReppository.findAll().get(i).getTenKhoa().trim().equals(name.trim())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
-
-
-	public Optional<Khoa> findById(Integer id) {
-		return khoaReppository.findById(id);
-	}
-
-	@Override
-	public <S extends Khoa> Page<S> findAll(Example<S> example, Pageable pageable) {
-		return khoaReppository.findAll(example, pageable);
-	}
-
-	@Override
-	public void deleteById(Integer id) {
-		khoaReppository.deleteById(id);
-	}
-
-	@Override
-	public <S extends Khoa> List<S> findAll(Example<S> example, Sort sort) {
-		return khoaReppository.findAll(example, sort);
-	}
 
 	
 }
