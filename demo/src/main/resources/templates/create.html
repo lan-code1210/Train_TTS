@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+</head>
+
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="content-wapper">
+                <form class="insert" th:action="@{/savesv}" th:object="${sv}" method="POST">
+                    <table class="table-insert">
+                        <tr>
+                            <td>Mã Sinh Viên </td>
+                            <td><input type="text" th:field="*{maSV}" placeholder="Nhập mã sinh viên ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Họ Và Tên </td>
+                            <td><input type="text" th:field="*{hoTen}" placeholder="Nhập họ và tên ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Sinh</td>
+                            <td><input type="date" th:field="*{ngaySinh}" placeholder="Nhập ngày sinh ..."></td>
+                        </tr>
+                        <tr>
+                            <td>Giới Tính</td>
+                            <td><input type="radio" th:field="*{gioiTinh}" 
+                            th:value="true"
+                             placeholder="Nhập giới tính ...">
+                             <label>Nam</label>
+                             <input type="radio" th:field="*{gioiTinh}" 
+                            th:value="false"
+                             placeholder="Nhập giới tính ...">
+                             <label>Nữ</label>
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>Khoa</td>
+                            <td>
+                            <select th:field="*{khoa}">
+                            <option th:each="kh:${listkh}" th:value="${kh.maKhoa}" th:text="${kh.tenKhoa}" value=""></option>
+                            </select>
+							</td>
+                        </tr>
+                        <tr>
+                            <td>Địa Chỉ</td>
+                            <td><input type="text" th:field="*{diaChi}" placeholder="Nhập địa chỉ ..."></td>
+                        </tr>
+                        <tr>
+                            <td>SĐT</td>
+                            <td><input type="text" th:field="*{sdt}" placeholder="Nhập số điện thoại ..."></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button>Submit</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </form>
+
+
+             
+
+
+                <table class="baocao"></table>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<form th:action="@{/savekhoa}" th:object="${khoa}"
+			method="POST"> 
+			<label>Mã khoa</label> 
+			<input type="text" th:field="*{maKhoa}"> 
+			<label>Tên khoa</label> 
+			<input type="text" th:field="*{tenKhoa}" required>
+		<button >Save</button>
+		</form>
+		<table>
+			<thead>
+				<th>Mã khoa</th>
+				<th>Tên khoa</th>
+				<th colspan="2">Thao tác</th>
+			</thead>
+			<tbody>
+				<tr th:each="kh: ${listkh}">
+					<td th:text="${kh.maKhoa}"></td>
+					<td th:text="${kh.tenKhoa}"></td>
+					<td><a th:href="@{/edit/{id}(id=${kh.maKhoa})}">Sửa</a></td>
+					<td><a th:href="@{/delete/{id}(id=${kh.maKhoa})}">Xóa</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
